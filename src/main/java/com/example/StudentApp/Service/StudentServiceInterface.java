@@ -9,10 +9,10 @@ public interface StudentServiceInterface {
 
     Student saveStudent(Student student);
     List<Student>getAllStudents();
-    Student updateStudent(Student student, int student_id);
+    Student updateStudent(Student student, int student_id)throws StudentNotFoundException;
     String deleteStudentById(int studentId) throws StudentNotFoundException;
     List<Student>getStudentByLastName(String lastName);
-    public Student getStudentByid(int student_id) throws StudentNotFoundException;
+     Student getStudentByid(int studentId)throws StudentNotFoundException;
 
 
 }

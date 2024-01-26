@@ -34,22 +34,21 @@ public class StudentController {
         return new ResponseEntity<>(studentServiceimpl.getAllStudents(),HttpStatus.FOUND);
     }
 
-    @GetMapping("/students/{lastName}")
+    @GetMapping("/student/{lastName}")
     public ResponseEntity<?> getAllStudentsByLastName(@PathVariable String lastName) {
         return new ResponseEntity<>(studentServiceimpl.getStudentByLastName(lastName), HttpStatus.FOUND);
     }
-    @GetMapping("/{studentID}")
-    public ResponseEntity<?>getStudentsById(@PathVariable int student_id) throws StudentNotFoundException {
-        return new ResponseEntity<>(studentServiceimpl.getStudentByid(student_id),HttpStatus.OK);
+
+    @GetMapping("/student/{studentId}")
+    public ResponseEntity<?>getStudentsById(@PathVariable int studentId) throws StudentNotFoundException {
+        return new ResponseEntity<>(studentServiceimpl.getStudentByid(studentId),HttpStatus.OK);
     }
     @DeleteMapping("/student/{studentId}")
     public ResponseEntity<?> deleteStudent(@PathVariable int studentId) throws StudentNotFoundException {
-//        System.out.println("HHHHHH");
         return new ResponseEntity<>(studentServiceimpl.deleteStudentById(studentId), HttpStatus.OK);
     }
     @PutMapping("/student/{studentId}")
-    public ResponseEntity<?> updateStudent(@RequestBody Student student,@PathVariable int studentId)
-    {
+    public ResponseEntity<?> updateStudent(@RequestBody Student student,@PathVariable int studentId) throws StudentNotFoundException {
         return new ResponseEntity<>(studentServiceimpl.updateStudent(student,studentId), HttpStatus.OK);
     }
 

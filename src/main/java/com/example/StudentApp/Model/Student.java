@@ -29,14 +29,7 @@ public class Student {
     private String email;
 
 
-//    public Student(int studentId, String firstName, String lastname, int phoneNumber, String address, int standard) {
-//        this.studentId = studentId;
-//        this.firstName = firstName;
-//        this.lastname = lastname;
-//        this.phoneNumber = phoneNumber;
-//        this.address = address;
-//        this.standard = standard;
-//    }
+
 
 
 }

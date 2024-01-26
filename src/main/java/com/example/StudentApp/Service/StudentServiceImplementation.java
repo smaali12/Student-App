@@ -31,11 +31,11 @@ public class StudentServiceImplementation implements StudentServiceInterface {
     }
 
     @Override
-    public Student updateStudent(Student student, int student_id) {
+    public Student updateStudent(Student student, int student_id) throws StudentNotFoundException{
         Optional<Student> optUser = studentRepository.findById(student_id);
-        if (optUser.isEmpty()) {
-           System.out.println("HIIIIII");
-            return null;
+        if (optUser.isEmpty())
+        {
+            throw new StudentNotFoundException("Student Not found");
         }
         Student existingUser = optUser.get();
         System.out.println(existingUser);
@@ -67,11 +67,11 @@ public class StudentServiceImplementation implements StudentServiceInterface {
     public String deleteStudentById(int student_id) throws StudentNotFoundException {
         if (studentRepository.findById(student_id).isEmpty())
         {
-          return("User is not Present");
+          throw new StudentNotFoundException("student is not Present");
         }else
         {
             studentRepository.deleteById(student_id);
-            return "User deleted Successfully";
+            return "Student deleted Successfully";
         }
     }
 
